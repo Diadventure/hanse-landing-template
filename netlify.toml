@@ -1,6 +1,21 @@
+# Netlify Konfiguration für optimale Performance
+
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
     Cache-Control = "public, max-age=3600"
+    
+# Weiterleitungen
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  
+# 404 auf Homepage umleiten
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 404
